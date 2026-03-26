@@ -1,20 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mzouhir <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/26 17:36:16 by mzouhir           #+#    #+#             */
-/*   Updated: 2026/03/26 18:22:14 by mzouhir          ###   ########.fr       */
+/*   Created: 2026/03/26 18:19:58 by mzouhir           #+#    #+#             */
+/*   Updated: 2026/03/26 18:49:39 by mzouhir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#ifndef CUB3D_H
+# define CUB3D_H
 
-int	main(int ac, char **av)
+# include <stdio.h>
+# include <stdlib.h>
+# include <math.h>
+
+typedef struct s_mapinfo
 {
-	(void)ac;
-	(void)av;
-	printf("hello\n");
-}
+	char	*n_text;
+	char	*s_text;
+	char	*e_text;
+	char	*w_text;
+
+	int		floor_color;
+	int		sky_color;
+
+	char	**map;
+	int		map_width;
+	int		map_height;
+}	t_mapinfo;
+
+#endif
