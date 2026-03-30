@@ -6,7 +6,7 @@
 /*   By: mzouhir <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/26 18:19:58 by mzouhir           #+#    #+#             */
-/*   Updated: 2026/03/28 16:50:46 by mzouhir          ###   ########.fr       */
+/*   Updated: 2026/03/30 17:40:24 by mzouhir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef struct s_mapinfo
 	int		sky_color;
 
 	char	**map;
+	char	*map_line;
 	int		map_width;
 	int		map_height;
 }	t_mapinfo;
@@ -39,6 +40,20 @@ typedef struct s_mapinfo
 bool		check_extension(char *str);
 t_mapinfo	*parse_map(int fd);
 
+//parsing color
+bool		extract_color(int *map_color, char *line);
 
+//parsing maze
+bool		is_maze_line(char *line);
+bool		create_maze_line(t_mapinfo *t_map, char *line);
+
+//parsing utils
+void		free_mapinfo(t_mapinfo *t_map);
+void		clean_gnl_stash(char *line, int fd);
+void		free_tab(char **tab);
+t_mapinfo	*init_map(void);
+
+//Testing functions
+void		print_map(t_mapinfo *t_map);
 
 #endif

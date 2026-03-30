@@ -1,30 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   parse_maze.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mzouhir <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/26 17:36:16 by mzouhir           #+#    #+#             */
-/*   Updated: 2026/03/30 15:27:58 by mzouhir          ###   ########.fr       */
+/*   Created: 2026/03/30 17:20:53 by mzouhir           #+#    #+#             */
+/*   Updated: 2026/03/30 17:46:43 by mzouhir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	main(int ac, char **av)
+bool	is_maze_line(char *line)
 {
-	int			fd;
-	t_mapinfo	*t_map;
+	int	i;
 
-	if (ac != 2)
-		return (ft_putstr_fd("Error: Wrong number of argument\n", 2), 1);
-	if (!check_extension(av[1]))
-		return (ft_putstr_fd("Error: Not a .cub map\n", 2), 1);
-	fd = open(av[1], O_RDONLY);
-	if (fd == -1)
-		return (ft_putstr_fd("Error: Impossible to open map\n", 2), 1);
-	t_map = parse_map(fd);
-	free_mapinfo(t_map);
-	return (0);
+	i = 0;
+	while (ft_isspace(line[i]))
+		i++;
+	if (line[i] == '1' || line[i] == '0')
+		return (true);
+	return (false);
+}
+
+bool	create_maze_line(t_mapinfo *t_map, char *line)
+{
+	char	*tmp;
+
+	tmp = ft_strjoin(t_map->map_line, line);
+	if (!tmp)
+		return (ft_putstr_fd("Error: Malloc failure", 2), false);
+	free(t_map->map_line);
+	t_map->map_line = tmp;
+	return (true);
 }
