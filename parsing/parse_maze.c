@@ -6,7 +6,7 @@
 /*   By: mzouhir <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/30 17:20:53 by mzouhir           #+#    #+#             */
-/*   Updated: 2026/03/30 17:46:43 by mzouhir          ###   ########.fr       */
+/*   Updated: 2026/03/30 18:26:31 by mzouhir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,21 @@ bool	create_maze_line(t_mapinfo *t_map, char *line)
 		return (ft_putstr_fd("Error: Malloc failure", 2), false);
 	free(t_map->map_line);
 	t_map->map_line = tmp;
+	return (true);
+}
+
+bool	init_maze(t_mapinfo *t_map)
+{
+	int	i;
+
+	i = 0;
+	t_map->map = ft_split(t_map->map_line, '\n');
+	if (!t_map->map)
+		return (ft_putstr_fd("Error: Malloc failure", 2), false);
+	while (t_map->map[i])
+		i++;
+	t_map->map_height = i;
+	if (!check_char_map(t_map))
+		return (ft_putstr_fd("Error: Invalid map character", 2), false);
 	return (true);
 }

@@ -6,7 +6,7 @@
 /*   By: mzouhir <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/28 16:08:37 by mzouhir           #+#    #+#             */
-/*   Updated: 2026/03/30 17:42:50 by mzouhir          ###   ########.fr       */
+/*   Updated: 2026/03/30 18:09:16 by mzouhir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,10 @@ t_mapinfo	*parse_map(int fd)
 		free(line);
 		line = get_next_line(fd);
 	}
-	//TODO delete this line
-	print_map(t_map);
+	if (!checklist_mapinfo(t_map))
+		return (free_mapinfo(t_map),
+			ft_putstr_fd("Error: information missing\n", 2), NULL);
+	if (!init_maze(t_map))
+		return (free_mapinfo(t_map), NULL);
 	return (t_map);
 }

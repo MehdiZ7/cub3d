@@ -6,7 +6,7 @@
 /*   By: mzouhir <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/30 15:14:37 by mzouhir           #+#    #+#             */
-/*   Updated: 2026/03/30 17:41:51 by mzouhir          ###   ########.fr       */
+/*   Updated: 2026/03/30 18:01:23 by mzouhir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,4 +78,23 @@ t_mapinfo	*init_map(void)
 	t_map->map_width = -1;
 	t_map->map_height = -1;
 	return (t_map);
+}
+
+bool	checklist_mapinfo(t_mapinfo *t_map)
+{
+	if (!t_map->n_text)
+		return (false);
+	if (!t_map->s_text)
+		return (false);
+	if (!t_map->e_text)
+		return (false);
+	if (!t_map->w_text)
+		return (false);
+	if (t_map->floor_color == -1)
+		return (false);
+	if (t_map->sky_color == -1)
+		return (false);
+	if (t_map->map_line[0] == '\0')
+		return (false);
+	return (true);
 }

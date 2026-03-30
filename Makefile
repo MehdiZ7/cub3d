@@ -6,13 +6,14 @@
 #    By: mzouhir <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/17 18:36:18 by mzouhir           #+#    #+#              #
-#    Updated: 2026/03/30 17:21:20 by mzouhir          ###   ########.fr        #
+#    Updated: 2026/03/30 18:11:51 by mzouhir          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = cub3d
 SRCS =	main.c parsing/parse_map.c getnextline/get_next_line_utils.c getnextline/get_next_line.c \
-		test_function.c parsing/parsing_utils.c parsing/parse_color.c parsing/parse_maze.c
+		test_function.c parsing/parsing_utils.c parsing/parse_color.c parsing/parse_maze.c \
+		parsing/check_maze.c
 OBJS = ${SRCS:.c=.o}
 CC = cc
 CFLAGS = -Wall -Werror -Wextra
