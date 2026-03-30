@@ -6,12 +6,12 @@
 #    By: mzouhir <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/17 18:36:18 by mzouhir           #+#    #+#              #
-#    Updated: 2026/03/26 17:37:40 by mzouhir          ###   ########.fr        #
+#    Updated: 2026/03/28 16:48:44 by mzouhir          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = cub3d
-SRCS = main.c
+SRCS = main.c parsing/parse_map.c getnextline/get_next_line_utils.c getnextline/get_next_line.c
 OBJS = ${SRCS:.c=.o}
 CC = cc
 CFLAGS = -Wall -Werror -Wextra

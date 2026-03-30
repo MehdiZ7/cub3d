@@ -6,7 +6,7 @@
 /*   By: mzouhir <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/26 18:19:58 by mzouhir           #+#    #+#             */
-/*   Updated: 2026/03/26 18:49:39 by mzouhir          ###   ########.fr       */
+/*   Updated: 2026/03/28 16:50:46 by mzouhir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <math.h>
+# include <stdbool.h>
+# include "libft.h"
+# include "get_next_line.h"
 
 typedef struct s_mapinfo
 {
@@ -31,5 +34,11 @@ typedef struct s_mapinfo
 	int		map_width;
 	int		map_height;
 }	t_mapinfo;
+
+//parsing map
+bool		check_extension(char *str);
+t_mapinfo	*parse_map(int fd);
+
+
 
 #endif
