@@ -6,7 +6,7 @@
 /*   By: mzouhir <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/28 16:08:37 by mzouhir           #+#    #+#             */
-/*   Updated: 2026/03/30 18:09:16 by mzouhir          ###   ########.fr       */
+/*   Updated: 2026/03/31 13:30:36 by mzouhir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,10 @@ bool	extract_path(char **map_path, char *line)
 	char	*path;
 
 	if (*map_path != NULL)
-		return (ft_putstr_fd("Error: Same texture existing\n", 2), false);
+		return (ft_putstr_fd("Error\n Same texture existing\n", 2), false);
 	path = ft_strtrim(line, " \n\t");
 	if (!path)
-		return (ft_putstr_fd("Error: Malloc failure\n", 2), false);
+		return (ft_putstr_fd("Error\n Malloc failure\n", 2), false);
 	*map_path = path;
 	return (true);
 }
@@ -67,14 +67,14 @@ bool	parse_line(t_mapinfo *t_map, char *line)
 	if (t_map->map_line[0] != '\0')
 	{
 		if (!is_maze_line(line))
-			return (ft_putstr_fd("Error: Incorrect map\n", 2), false);
+			return (ft_putstr_fd("Error\n Incorrect map\n", 2), false);
 		return (create_maze_line(t_map, line));
 	}
 	if (check_type(t_map, line, i))
 		return (true);
 	if (is_maze_line(line))
 		return (create_maze_line(t_map, line));
-	ft_putstr_fd("Error: Unknowns type\n", 2);
+	ft_putstr_fd("Error\n Unknowns type\n", 2);
 	return (false);
 }
 
@@ -100,7 +100,7 @@ t_mapinfo	*parse_map(int fd)
 	}
 	if (!checklist_mapinfo(t_map))
 		return (free_mapinfo(t_map),
-			ft_putstr_fd("Error: information missing\n", 2), NULL);
+			ft_putstr_fd("Error\n information missing\n", 2), NULL);
 	if (!init_maze(t_map))
 		return (free_mapinfo(t_map), NULL);
 	return (t_map);

@@ -6,7 +6,7 @@
 /*   By: mzouhir <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/30 15:28:34 by mzouhir           #+#    #+#             */
-/*   Updated: 2026/03/30 17:42:18 by mzouhir          ###   ########.fr       */
+/*   Updated: 2026/03/31 12:40:22 by mzouhir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,10 +87,10 @@ bool	extract_color(int *map_color, char *line)
 	if (!check_commas(line))
 		return (false);
 	if (*map_color != -1)
-		return (ft_putstr_fd("Error: Same color existing\n", 2), false);
+		return (ft_putstr_fd("Error\n Same color existing\n", 2), false);
 	rgb = ft_split(line, ',');
 	if (!rgb)
-		return (ft_putstr_fd("Error: Malloc failure", 2), false);
+		return (ft_putstr_fd("Error\n Malloc failure", 2), false);
 	color = convert_rgb(rgb);
 	if (color < 0)
 		return (free_tab(rgb), false);

@@ -6,7 +6,7 @@
 /*   By: mzouhir <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/30 17:20:53 by mzouhir           #+#    #+#             */
-/*   Updated: 2026/03/30 18:26:31 by mzouhir          ###   ########.fr       */
+/*   Updated: 2026/03/31 13:30:24 by mzouhir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ bool	create_maze_line(t_mapinfo *t_map, char *line)
 
 	tmp = ft_strjoin(t_map->map_line, line);
 	if (!tmp)
-		return (ft_putstr_fd("Error: Malloc failure", 2), false);
+		return (ft_putstr_fd("Error\n Malloc failure", 2), false);
 	free(t_map->map_line);
 	t_map->map_line = tmp;
 	return (true);
@@ -43,11 +43,13 @@ bool	init_maze(t_mapinfo *t_map)
 	i = 0;
 	t_map->map = ft_split(t_map->map_line, '\n');
 	if (!t_map->map)
-		return (ft_putstr_fd("Error: Malloc failure", 2), false);
+		return (ft_putstr_fd("Error\n Malloc failure", 2), false);
 	while (t_map->map[i])
 		i++;
 	t_map->map_height = i;
 	if (!check_char_map(t_map))
-		return (ft_putstr_fd("Error: Invalid map character", 2), false);
+		return (ft_putstr_fd("Error\n Invalid map character", 2), false);
+	if (!validate_map(t_map))
+		return (ft_putstr_fd("Error\n Invalid map walls", 2), false);
 	return (true);
 }
