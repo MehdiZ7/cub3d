@@ -6,7 +6,7 @@
 /*   By: mzouhir <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/26 17:36:16 by mzouhir           #+#    #+#             */
-/*   Updated: 2026/03/31 16:00:29 by mzouhir          ###   ########.fr       */
+/*   Updated: 2026/03/31 17:57:05 by mzouhir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int	main(int ac, char **av)
 		return (free_mapinfo(t_map)
 			, ft_putstr_fd("Error\n Initialisation window failure\n", 2), 1);
 	events_init(&game);
+	init_player_pos(&game);
 	mlx_loop(game.mlx_ptr);
 	free_mapinfo(t_map);
 	return (0);

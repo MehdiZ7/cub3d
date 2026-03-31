@@ -6,7 +6,7 @@
 /*   By: mzouhir <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/26 18:19:58 by mzouhir           #+#    #+#             */
-/*   Updated: 2026/03/31 16:00:02 by mzouhir          ###   ########.fr       */
+/*   Updated: 2026/03/31 18:36:15 by mzouhir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,32 @@ typedef struct s_game
 	t_player	player;
 }	t_game;
 
+typedef struct s_render
+{
+	int		x;
+	double	camera_x;
+	double	ray_dir_x;
+	double	ray_dir_y;
+
+	int		map_x;
+	int		map_y;
+
+	double	dist_to_cross_x;
+	double	dist_to_cross_y;
+
+	double	dist_to_next_x;
+	double	dist_to_next_y;
+
+	int		step_x;
+	int		step_y;
+
+	bool	hit;
+	bool	side;
+
+	double	final_result;
+
+}	t_render;
+
 //parsing map
 bool		check_extension(char *str);
 t_mapinfo	*parse_map(int fd);
@@ -94,6 +120,9 @@ bool		checklist_mapinfo(t_mapinfo *t_map);
 //init game window
 bool		launcher(t_game *game);
 void		clear_window(t_game *game);
+
+//init player
+void		init_player_pos(t_game *game);
 
 
 //events
