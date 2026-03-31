@@ -6,7 +6,7 @@
 /*   By: mzouhir <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/26 17:36:16 by mzouhir           #+#    #+#             */
-/*   Updated: 2026/03/31 12:40:22 by mzouhir          ###   ########.fr       */
+/*   Updated: 2026/03/31 16:00:29 by mzouhir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int	main(int ac, char **av)
 {
 	int			fd;
 	t_mapinfo	*t_map;
+	t_game		game;
 
 	if (ac != 2)
 		return (ft_putstr_fd("Error\n Wrong number of argument\n", 2), 1);
@@ -25,6 +26,12 @@ int	main(int ac, char **av)
 	if (fd == -1)
 		return (ft_putstr_fd("Error\n Impossible to open map\n", 2), 1);
 	t_map = parse_map(fd);
+	game.map = t_map;
+	if (!launcher(&game))
+		return (free_mapinfo(t_map)
+			, ft_putstr_fd("Error\n Initialisation window failure\n", 2), 1);
+	events_init(&game);
+	mlx_loop(game.mlx_ptr);
 	free_mapinfo(t_map);
 	return (0);
 }

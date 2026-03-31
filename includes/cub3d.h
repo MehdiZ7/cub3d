@@ -6,7 +6,7 @@
 /*   By: mzouhir <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/26 18:19:58 by mzouhir           #+#    #+#             */
-/*   Updated: 2026/03/31 13:29:44 by mzouhir          ###   ########.fr       */
+/*   Updated: 2026/03/31 16:00:02 by mzouhir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@
 # include <stdlib.h>
 # include <math.h>
 # include <stdbool.h>
+# include "mlx.h"
+# include <X11/X.h>
+# include <X11/keysym.h>
 # include "libft.h"
 # include "get_next_line.h"
 
@@ -35,6 +38,34 @@ typedef struct s_mapinfo
 	int		map_width;
 	int		map_height;
 }	t_mapinfo;
+
+typedef struct s_img
+{
+	void	*img_ptr;
+	char	*img_pixel_ptr;
+	int		bit_per_pixel;
+	int		endian;
+	int		line_len;
+}	t_img;
+
+typedef struct s_player
+{
+	double	pos_x;
+	double	pos_y;
+	double	dir_x;
+	double	dir_y;
+	double	cam_x;
+	double	cam_y;
+}	t_player;
+
+typedef struct s_game
+{
+	void		*mlx_ptr;
+	void		*win_ptr;
+	t_img		img;
+	t_mapinfo	*map;
+	t_player	player;
+}	t_game;
 
 //parsing map
 bool		check_extension(char *str);
@@ -59,6 +90,15 @@ void		clean_gnl_stash(char *line, int fd);
 void		free_tab(char **tab);
 t_mapinfo	*init_map(void);
 bool		checklist_mapinfo(t_mapinfo *t_map);
+
+//init game window
+bool		launcher(t_game *game);
+void		clear_window(t_game *game);
+
+
+//events
+void		events_init(t_game *game);
+
 
 //Testing functions
 void		print_map(t_mapinfo *t_map);
