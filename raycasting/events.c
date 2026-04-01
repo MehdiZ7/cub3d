@@ -6,7 +6,7 @@
 /*   By: mzouhir <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/31 15:52:47 by mzouhir           #+#    #+#             */
-/*   Updated: 2026/04/01 16:13:32 by mzouhir          ###   ########.fr       */
+/*   Updated: 2026/04/01 16:34:40 by mzouhir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 int	key_handle(int keysym, t_game *game)
 {
 	double	next_move;
+	double	old_dir;
+	double	old_cam;
 
 	if (keysym == XK_Escape)
 	{
@@ -39,6 +41,42 @@ int	key_handle(int keysym, t_game *game)
 		next_move = game->player.pos_y - (game->player.dir_y * SPEED);
 		if (game->map->map[(int)next_move][(int)game->player.pos_x] == '0')
 		game->player.pos_y = next_move;
+	}
+	else if (keysym == XK_d)
+	{
+		next_move = game->player.pos_x + (-game->player.dir_y * SPEED);
+		if (game->map->map[(int)game->player.pos_y][(int)next_move] == '0')
+		game->player.pos_x = next_move;
+		next_move = game->player.pos_y + (game->player.dir_x * SPEED);
+		if (game->map->map[(int)next_move][(int)game->player.pos_x] == '0')
+		game->player.pos_y = next_move;
+	}
+	else if (keysym == XK_a)
+	{
+		next_move = game->player.pos_x - (-game->player.dir_y * SPEED);
+		if (game->map->map[(int)game->player.pos_y][(int)next_move] == '0')
+		game->player.pos_x = next_move;
+		next_move = game->player.pos_y - (game->player.dir_x * SPEED);
+		if (game->map->map[(int)next_move][(int)game->player.pos_x] == '0')
+		game->player.pos_y = next_move;
+	}
+	else if (keysym == XK_Right)
+	{
+		old_dir = game->player.dir_x;
+		game->player.dir_x = old_dir * cos(TURNSPEED) - game->player.dir_y * sin(TURNSPEED);
+		game->player.dir_y = old_dir * sin(TURNSPEED) + game->player.dir_y * cos(TURNSPEED);
+		old_cam = game->player.cam_x;
+		game->player.cam_x = old_cam * cos(TURNSPEED) - game->player.cam_y * sin(TURNSPEED);
+		game->player.cam_y = old_cam * sin(TURNSPEED) + game->player.cam_y * cos(TURNSPEED);
+	}
+	else if (keysym == XK_Left)
+	{
+		old_dir = game->player.dir_x;
+		game->player.dir_x = old_dir * cos(-TURNSPEED) - game->player.dir_y * sin(-TURNSPEED);
+		game->player.dir_y = old_dir * sin(-TURNSPEED) + game->player.dir_y * cos(-TURNSPEED);
+		old_cam = game->player.cam_x;
+		game->player.cam_x = old_cam * cos(-TURNSPEED) - game->player.cam_y * sin(-TURNSPEED);
+		game->player.cam_y = old_cam * sin(-TURNSPEED) + game->player.cam_y * cos(-TURNSPEED);
 	}
 	render_maths(game);
 	return (0);
