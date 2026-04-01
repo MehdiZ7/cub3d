@@ -6,7 +6,7 @@
 /*   By: mzouhir <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/26 18:19:58 by mzouhir           #+#    #+#             */
-/*   Updated: 2026/03/31 18:36:15 by mzouhir          ###   ########.fr       */
+/*   Updated: 2026/04/01 14:36:21 by mzouhir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,9 @@
 # include <X11/keysym.h>
 # include "libft.h"
 # include "get_next_line.h"
+
+# define HEIGHT 600
+# define WIDTH 800
 
 typedef struct s_mapinfo
 {
@@ -58,15 +61,6 @@ typedef struct s_player
 	double	cam_y;
 }	t_player;
 
-typedef struct s_game
-{
-	void		*mlx_ptr;
-	void		*win_ptr;
-	t_img		img;
-	t_mapinfo	*map;
-	t_player	player;
-}	t_game;
-
 typedef struct s_render
 {
 	int		x;
@@ -77,21 +71,35 @@ typedef struct s_render
 	int		map_x;
 	int		map_y;
 
-	double	dist_to_cross_x;
-	double	dist_to_cross_y;
+	double	sidedist_x;
+	double	sidedist_y;
 
-	double	dist_to_next_x;
-	double	dist_to_next_y;
+	double	deltadist_x;
+	double	deltadist_y;
 
 	int		step_x;
 	int		step_y;
 
 	bool	hit;
-	bool	side;
+	int		side;
 
-	double	final_result;
+	double	perpwalldist;
 
+	int		lineheight;
+	int		drawstart;
+	int		drawend;
 }	t_render;
+
+typedef struct s_game
+{
+	void		*mlx_ptr;
+	void		*win_ptr;
+	t_img		img;
+	t_mapinfo	*map;
+	t_player	player;
+	t_render	render;
+}	t_game;
+
 
 //parsing map
 bool		check_extension(char *str);
@@ -127,6 +135,13 @@ void		init_player_pos(t_game *game);
 
 //events
 void		events_init(t_game *game);
+
+//drawing
+void		my_pixel_put(t_game *game, int x, int y, int color);
+void		draw_vertical_line(t_game *game, int x);
+
+//Render
+void		render_maths(t_game *game);
 
 
 //Testing functions

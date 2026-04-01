@@ -6,7 +6,7 @@
 /*   By: mzouhir <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/31 14:18:14 by mzouhir           #+#    #+#             */
-/*   Updated: 2026/03/31 14:48:29 by mzouhir          ###   ########.fr       */
+/*   Updated: 2026/04/01 13:37:08 by mzouhir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@ bool	launcher(t_game *game)
 	game->mlx_ptr = mlx_init();
 	if (!game->mlx_ptr)
 		return (false);
-	game->win_ptr = mlx_new_window(game->mlx_ptr, 800, 600, "CUB3D");
+	game->win_ptr = mlx_new_window(game->mlx_ptr, WIDTH, HEIGHT, "CUB3D");
 	if (!game->win_ptr)
 		return (mlx_destroy_display(game->mlx_ptr), free(game->mlx_ptr), false);
-	game->img.img_ptr = mlx_new_image(game->mlx_ptr, 800, 600);
+	game->img.img_ptr = mlx_new_image(game->mlx_ptr, WIDTH, HEIGHT);
 	if (!game->img.img_ptr)
 		return (mlx_destroy_image(game->mlx_ptr, game->img.img_ptr)
 			, clear_window(game), false);
