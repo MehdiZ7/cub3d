@@ -6,7 +6,7 @@
 /*   By: mzouhir <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/26 18:19:58 by mzouhir           #+#    #+#             */
-/*   Updated: 2026/04/01 16:33:55 by mzouhir          ###   ########.fr       */
+/*   Updated: 2026/04/01 17:17:28 by mzouhir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ typedef struct s_img
 	int		bit_per_pixel;
 	int		endian;
 	int		line_len;
+	int		width;
+	int		height;
 }	t_img;
 
 typedef struct s_player
@@ -100,6 +102,7 @@ typedef struct s_game
 	t_mapinfo	*map;
 	t_player	player;
 	t_render	render;
+	t_img		textures[4];
 }	t_game;
 
 
@@ -130,6 +133,8 @@ bool		checklist_mapinfo(t_mapinfo *t_map);
 //init game window
 bool		launcher(t_game *game);
 void		clear_window(t_game *game);
+bool		init_textures(t_game *game);
+
 
 //init player
 void		init_player_pos(t_game *game);
