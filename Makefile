@@ -6,7 +6,7 @@
 #    By: mzouhir <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/17 18:36:18 by mzouhir           #+#    #+#              #
-#    Updated: 2026/04/01 13:48:32 by mzouhir          ###   ########.fr        #
+#    Updated: 2026/04/03 14:16:14 by mzouhir          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ SRCS =	main.c parsing/parse_map.c getnextline/get_next_line_utils.c getnextline/
 		raycasting/init_player.c raycasting/raycasting.c raycasting/drawing.c
 OBJS = ${SRCS:.c=.o}
 CC = cc
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -g3
 LIBFT_DIR = Libft
 LIBFT = ${LIBFT_DIR}/libft.a
 MLX_DIR = minilibx-linux
