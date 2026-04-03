@@ -6,7 +6,7 @@
 /*   By: mzouhir <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/31 14:18:14 by mzouhir           #+#    #+#             */
-/*   Updated: 2026/04/01 17:30:51 by mzouhir          ###   ########.fr       */
+/*   Updated: 2026/04/03 15:37:04 by mzouhir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,17 @@
 
 void	clear_window(t_game *game)
 {
+	int	i;
+
+	i = 0;
 	if (game->img.img_ptr)
 		mlx_destroy_image(game->mlx_ptr, game->img.img_ptr);
+	while (i < 4)
+	{
+		if (game->textures[i].img_ptr)
+			mlx_destroy_image(game->mlx_ptr, game->textures[i].img_ptr);
+		i++;
+	}
 	mlx_destroy_window(game->mlx_ptr, game->win_ptr);
 	mlx_destroy_display(game->mlx_ptr);
 	free(game->mlx_ptr);

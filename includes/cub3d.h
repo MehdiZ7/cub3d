@@ -6,7 +6,7 @@
 /*   By: mzouhir <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/26 18:19:58 by mzouhir           #+#    #+#             */
-/*   Updated: 2026/04/01 17:17:28 by mzouhir          ###   ########.fr       */
+/*   Updated: 2026/04/03 15:13:45 by mzouhir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,11 @@ typedef struct s_render
 	int		lineheight;
 	int		drawstart;
 	int		drawend;
+
+	int		tex_id;
+	double	wall_x;
+	int		tex_x;
+	int		tex_y;
 }	t_render;
 
 typedef struct s_game
