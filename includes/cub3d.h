@@ -6,7 +6,7 @@
 /*   By: mzouhir <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/26 18:19:58 by mzouhir           #+#    #+#             */
-/*   Updated: 2026/04/03 15:13:45 by mzouhir          ###   ########.fr       */
+/*   Updated: 2026/04/08 12:30:28 by mzouhir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -154,7 +154,8 @@ void		draw_vertical_line(t_game *game, int x);
 
 //Render
 void		render_maths(t_game *game);
-
+void		get_texture(t_game *game);
+void		calcul_texture(t_game *game);
 
 //Testing functions
 void		print_map(t_mapinfo *t_map);

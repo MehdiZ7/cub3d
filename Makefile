@@ -6,7 +6,7 @@
 #    By: mzouhir <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/17 18:36:18 by mzouhir           #+#    #+#              #
-#    Updated: 2026/04/03 14:16:14 by mzouhir          ###   ########.fr        #
+#    Updated: 2026/04/08 12:26:51 by mzouhir          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = cub3d
 SRCS =	main.c parsing/parse_map.c getnextline/get_next_line_utils.c getnextline/get_next_line.c \
 		test_function.c parsing/parsing_utils.c parsing/parse_color.c parsing/parse_maze.c \
 		parsing/check_maze.c parsing/floodfill.c raycasting/init_game.c raycasting/events.c \
-		raycasting/init_player.c raycasting/raycasting.c raycasting/drawing.c
+		raycasting/init_player.c raycasting/raycasting.c raycasting/drawing.c raycasting/raycasting_utils.c
 OBJS = ${SRCS:.c=.o}
 CC = cc
 CFLAGS = -Wall -Werror -Wextra -g3
