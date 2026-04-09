@@ -6,7 +6,7 @@
 /*   By: mzouhir <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/26 18:19:58 by mzouhir           #+#    #+#             */
-/*   Updated: 2026/04/09 14:12:06 by mzouhir          ###   ########.fr       */
+/*   Updated: 2026/04/09 16:27:31 by mzouhir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@
 # define WIDTH 800
 # define SPEED 0.2
 # define TURNSPEED 0.1
+# define TILE_SIZE 10
 
 typedef struct s_mapinfo
 {
