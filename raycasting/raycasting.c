@@ -6,7 +6,7 @@
 /*   By: mzouhir <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/31 17:58:47 by mzouhir           #+#    #+#             */
-/*   Updated: 2026/04/08 13:03:14 by mzouhir          ###   ########.fr       */
+/*   Updated: 2026/04/09 17:11:41 by mzouhir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,6 +112,7 @@ void	render_maths(t_game *game)
 		draw_vertical_line(game, game->render.x);
 		game->render.x++;
 	}
+	render_minimap(game);
 	mlx_put_image_to_window(game->mlx_ptr, game->win_ptr,
 		game->img.img_ptr, 0, 0);
 }

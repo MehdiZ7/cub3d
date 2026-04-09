@@ -6,7 +6,7 @@
 /*   By: mzouhir <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/26 18:19:58 by mzouhir           #+#    #+#             */
-/*   Updated: 2026/04/09 16:27:31 by mzouhir          ###   ########.fr       */
+/*   Updated: 2026/04/09 17:38:00 by mzouhir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,12 @@
 # define WIDTH 800
 # define SPEED 0.2
 # define TURNSPEED 0.1
-# define TILE_SIZE 10
+# define TILE_SIZE 7
+# define PLAYER_SIZE 3
+# define MAP_WALL 0xCCCCCC
+# define MAP_FLOOR 0x333333
+# define MAP_PLAYER 0xFF0000
+# define MAP_OFFSET 10
 
 typedef struct s_mapinfo
 {
@@ -162,7 +167,7 @@ void		render_maths(t_game *game);
 void		get_texture(t_game *game);
 void		calcul_texture(t_game *game);
 
-//Testing functions
-void		print_map(t_mapinfo *t_map);
+//BONUS minimap
+void		render_minimap(t_game *game);
 
 #endif
