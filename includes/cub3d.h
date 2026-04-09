@@ -6,7 +6,7 @@
 /*   By: mzouhir <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/26 18:19:58 by mzouhir           #+#    #+#             */
-/*   Updated: 2026/04/08 12:30:28 by mzouhir          ###   ########.fr       */
+/*   Updated: 2026/04/09 14:12:06 by mzouhir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,8 @@ typedef struct s_render
 	double	wall_x;
 	int		tex_x;
 	int		tex_y;
+	double	step;
+	double	tex_pos;
 }	t_render;
 
 typedef struct s_game
@@ -109,7 +111,6 @@ typedef struct s_game
 	t_render	render;
 	t_img		textures[4];
 }	t_game;
-
 
 //parsing map
 bool		check_extension(char *str);
@@ -140,13 +141,16 @@ bool		launcher(t_game *game);
 void		clear_window(t_game *game);
 bool		init_textures(t_game *game);
 
-
 //init player
 void		init_player_pos(t_game *game);
 
-
 //events
 void		events_init(t_game *game);
+bool		check_collision(t_game *game, double x, double y);
+void		move_forback(int keysym, t_game *game);
+void		move_rightleft(int keysym, t_game *game);
+void		look_right(t_game *game);
+void		look_left(t_game *game);
 
 //drawing
 void		my_pixel_put(t_game *game, int x, int y, int color);
