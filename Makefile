@@ -6,7 +6,7 @@
 #    By: mzouhir <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/17 18:36:18 by mzouhir           #+#    #+#              #
-#    Updated: 2026/04/09 16:26:20 by mzouhir          ###   ########.fr        #
+#    Updated: 2026/04/13 13:43:39 by mzouhir          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,11 +18,13 @@ SRCS =	main.c parsing/parse_map.c getnextline/get_next_line_utils.c getnextline/
 		raycasting/events_move.c
 
 SRCS_BONUS =	parsing/parse_map.c getnextline/get_next_line_utils.c getnextline/get_next_line.c \
-				test_function.c parsing/parsing_utils.c parsing/parse_color.c parsing/parse_maze.c \
-				parsing/check_maze.c parsing/floodfill.c raycasting/init_game.c raycasting/events.c \
-				raycasting/init_player.c raycasting/raycasting.c raycasting/drawing.c raycasting/raycasting_utils.c \
-				raycasting/events_move.c\
-				bonus/main_bonus.c bonus/minimap_bonus.c
+				test_function.c parsing/parsing_utils.c parsing/parse_color.c \
+				parsing/floodfill.c \
+				raycasting/init_player.c raycasting/drawing.c \
+				bonus/main_bonus.c bonus/minimap_bonus.c bonus/check_maze_bonus.c \
+				bonus/parse_maze_bonus.c bonus/events_bonus.c bonus/raycasting_bonus.c \
+				bonus/events_move_bonus.c bonus/init_game_bonus.c \
+				bonus/raycasting_utils_bonus.c
 
 OBJS = ${SRCS:.c=.o}
 OBJS_BONUS = ${SRCS_BONUS:.c=.o}
@@ -63,18 +65,16 @@ re: fclean all
 bonus: ${OBJS_BONUS} ${LIBFT} ${MLX}
 	${CC} ${CFLAGS} ${OBJS_BONUS} ${LIBFT} ${MLX} ${MLX_FLAGS} -o ${NAME}
 
-clean_bonus:
+clean_bonus: clean
 	rm -f ${OBJS_BONUS}
 	${MAKE} -C ${LIBFT_DIR} clean
 	${MAKE} -C ${MLX_DIR} clean
 
-fclean_bonus: clean_bonus
+fclean_bonus: clean_bonus clean
 	rm -f ${NAME}
 	${MAKE} -C ${LIBFT_DIR} fclean
 
 re_bonus: fclean bonus
-
-
 
 .PHONY: all clean fclean re
 

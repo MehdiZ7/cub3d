@@ -6,7 +6,7 @@
 /*   By: mzouhir <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/26 18:19:58 by mzouhir           #+#    #+#             */
-/*   Updated: 2026/04/09 17:38:00 by mzouhir          ###   ########.fr       */
+/*   Updated: 2026/04/13 13:47:25 by mzouhir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ typedef struct s_mapinfo
 	char	*s_text;
 	char	*e_text;
 	char	*w_text;
+	char	*d_text;
 
 	int		floor_color;
 	int		sky_color;
@@ -115,7 +116,7 @@ typedef struct s_game
 	t_mapinfo	*map;
 	t_player	player;
 	t_render	render;
-	t_img		textures[4];
+	t_img		textures[5];
 }	t_game;
 
 //parsing map
