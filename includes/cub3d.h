@@ -6,7 +6,7 @@
 /*   By: mzouhir <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/26 18:19:58 by mzouhir           #+#    #+#             */
-/*   Updated: 2026/04/13 13:47:25 by mzouhir          ###   ########.fr       */
+/*   Updated: 2026/04/14 11:45:21 by mzouhir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@
 # define MAP_WALL 0xCCCCCC
 # define MAP_FLOOR 0x333333
 # define MAP_PLAYER 0xFF0000
+# define MAP_DOOR 0xFF00FF
 # define MAP_OFFSET 10
 
 typedef struct s_mapinfo

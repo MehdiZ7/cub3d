@@ -6,7 +6,7 @@
 /*   By: mzouhir <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/09 16:25:45 by mzouhir           #+#    #+#             */
-/*   Updated: 2026/04/09 17:41:02 by mzouhir          ###   ########.fr       */
+/*   Updated: 2026/04/14 11:45:28 by mzouhir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,10 @@ void	render_minimap(t_game *game)
 			else if (game->map->map[y][x] == '0')
 				draw_tile(game, x * TILE_SIZE + MAP_OFFSET,
 					y * TILE_SIZE + MAP_OFFSET, MAP_FLOOR);
+			else if (game->map->map[y][x] == '2' ||
+			game->map->map[y][x] == '3' )
+				draw_tile(game, x * TILE_SIZE + MAP_OFFSET,
+					y * TILE_SIZE + MAP_OFFSET, MAP_DOOR);
 			x++;
 		}
 		y++;
