@@ -28,8 +28,7 @@ It is a fantastic deep dive into mathematics (trigonometry and vectors), algorit
 Here is a look at the textures used in the game. *(Make sure to replace the image paths with your actual screenshot/texture paths!)*
 
 ### Wall Textures
-| North Wall | South Wall | East Wall | West Wall | Door 
-| :---: | :---: | :---: | :---: |
+| North Wall | South Wall | East Wall | West Wall | Door |
 | <img src="north.png" width="150"/> | <img src="south.png" width="150"/> | <img src="east.png" width="150"/> | <img src="west.png" width="150"/> | <img src="door.png" width="150"/> |
 
 ### In-Game Screenshots
