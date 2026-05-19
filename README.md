@@ -34,9 +34,11 @@ Here is a look at the textures used in the game. *(Make sure to replace the imag
 
 ### In-Game Screenshots
 ![Gameplay Screenshot 1](Screenshot2.png)
+
 *Description: A view from inside the maze, demonstrating raycasting and wall textures.*
 
 ![Gameplay Screenshot 2](Screenshot1.png)
+
 *Description: Showcasing the minimap, floor/ceiling colored rendering and sprit.*
 
 ## 🛠️ Usage
