@@ -25,7 +25,7 @@ It is a fantastic deep dive into mathematics (trigonometry and vectors), algorit
 
 ## 🖼️ Textures & Visuals
 
-Here is a look at the textures used in the game. *(Make sure to replace the image paths with your actual screenshot/texture paths!)*
+Here is a look at the textures used in the game. 
 
 ### Wall Textures
 | North Wall | South Wall | East Wall | West Wall | Door |
