@@ -33,10 +33,10 @@ Here is a look at the textures used in the game. *(Make sure to replace the imag
 | <img src="north.png" width="150"/> | <img src="south.png" width="150"/> | <img src="east.png" width="150"/> | <img src="west.png" width="150"/> | <img src="door.png" width="150"/> |
 
 ### In-Game Screenshots
-![Gameplay Screenshot 1](texture/screenshot1.png)
+![Gameplay Screenshot 1](Screenshot From 2026-05-19 14-39-49.png)
 *Description: A view from inside the maze, demonstrating raycasting and wall textures.*
 
-![Gameplay Screenshot 2](texture/screenshot2.png)
+![Gameplay Screenshot 2](Screenshot From 2026-05-19 14-39-29.png)
 *Description: Showcasing the minimap and floor/ceiling colored rendering.*
 
 ## 🛠️ Usage
