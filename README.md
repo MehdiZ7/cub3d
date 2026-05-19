@@ -29,6 +29,7 @@ Here is a look at the textures used in the game. *(Make sure to replace the imag
 
 ### Wall Textures
 | North Wall | South Wall | East Wall | West Wall | Door |
+
 | <img src="north.png" width="150"/> | <img src="south.png" width="150"/> | <img src="east.png" width="150"/> | <img src="west.png" width="150"/> | <img src="door.png" width="150"/> |
 
 ### In-Game Screenshots
