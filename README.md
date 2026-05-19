@@ -33,11 +33,11 @@ Here is a look at the textures used in the game. *(Make sure to replace the imag
 | <img src="north.png" width="150"/> | <img src="south.png" width="150"/> | <img src="east.png" width="150"/> | <img src="west.png" width="150"/> | <img src="door.png" width="150"/> |
 
 ### In-Game Screenshots
-![Gameplay Screenshot 1](Screenshot From 2026-05-19 14-39-49.png)
+![Gameplay Screenshot 1](Screenshot2.png)
 *Description: A view from inside the maze, demonstrating raycasting and wall textures.*
 
-![Gameplay Screenshot 2](Screenshot From 2026-05-19 14-39-29.png)
-*Description: Showcasing the minimap and floor/ceiling colored rendering.*
+![Gameplay Screenshot 2](Screenshot1.png)
+*Description: Showcasing the minimap, floor/ceiling colored rendering and sprit.*
 
 ## 🛠️ Usage
 
@@ -56,6 +56,12 @@ make clean
 
 # Clean everything including the executable
 make fclean
+
+# Clean object files bonus
+make clean_bonus
+
+#clean everything include the executable bonus
+make fclean_bonus
 ```
 
 ### Running the Game
